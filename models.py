@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, TIMESTAMP, ForeignKey, SmallInteger
+from sqlalchemy import Column, Integer, String, Text, TIMESTAMP, ForeignKey, SmallInteger, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
@@ -30,7 +30,8 @@ class VareTodo(Base):
     vare_id = Column(Integer, ForeignKey("vare.id"), nullable=False)
     todo_text = Column(String(500), nullable=False)
     todo_category = Column(String(100), nullable=False)
-    order_seq = Column(SmallInteger, nullable=False, default=1)  # TINYINT 대신 SmallInteger
+    order_seq = Column(SmallInteger, nullable=False, default=1)
+    is_completed = Column(Boolean, nullable=False, default=False)  # 새로 추가된 컬럼
     created_at = Column(TIMESTAMP, nullable=False, server_default=func.now())
 
     vare = relationship("Vare", back_populates="todos")
@@ -42,8 +43,8 @@ class VareReason(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     vare_id = Column(Integer, ForeignKey("vare.id"), nullable=False)
     reason_text = Column(Text, nullable=False)
-    percent = Column(SmallInteger, nullable=False)  # TINYINT 대신 SmallInteger
-    order_seq = Column(SmallInteger, nullable=False, default=1)  # TINYINT 대신 SmallInteger
+    percent = Column(SmallInteger, nullable=False)
+    order_seq = Column(SmallInteger, nullable=False, default=1)
     created_at = Column(TIMESTAMP, nullable=False, server_default=func.now())
 
     vare = relationship("Vare", back_populates="reasons")
@@ -56,7 +57,7 @@ class VareAction(Base):
     vare_id = Column(Integer, ForeignKey("vare.id"), nullable=False)
     action_title = Column(String(255), nullable=False)
     action_desc = Column(Text, nullable=False)
-    order_seq = Column(SmallInteger, nullable=False, default=1)  # TINYINT 대신 SmallInteger
+    order_seq = Column(SmallInteger, nullable=False, default=1)
     created_at = Column(TIMESTAMP, nullable=False, server_default=func.now())
 
     vare = relationship("Vare", back_populates="actions")

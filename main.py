@@ -138,7 +138,8 @@ async def create_vare(vare_data: schemas.VareCreate, db: Session = Depends(datab
             vare_id=db_vare.id,
             todo_text=todo,
             todo_category=category,
-            order_seq=i + 1
+            order_seq=i + 1,
+            is_completed=False
         )
         db.add(todo_item)
 
@@ -198,6 +199,23 @@ async def get_vare_by_id(vare_id: int, db: Session = Depends(database.get_db)):
         raise HTTPException(status_code=404, detail="해당 ID의 데이터가 없습니다")
 
     return vare
+
+
+@app.put("/todos/{todo_id}/", response_model=schemas.TodoResponse)
+async def toggle_todo_completion(todo_id: int, db: Session = Depends(database.get_db)):
+    """TODO 항목의 완료 상태를 토글 (완료 ↔ 미완료)"""
+
+    todo = db.query(VareTodo).filter(VareTodo.id == todo_id).first()
+
+    if not todo:
+        raise HTTPException(status_code=404, detail="해당 TODO를 찾을 수 없습니다")
+
+    # 완료 상태 토글
+    todo.is_completed = not todo.is_completed
+    db.commit()
+    db.refresh(todo)
+
+    return todo
 
 if __name__ == "__main__":
     import uvicorn

@@ -3,7 +3,7 @@ from typing import List
 from datetime import datetime
 
 
-# 입력용 스키마
+# 입력용 스키마 (기존과 동일)
 class SuccData(BaseModel):
     description: str
     todo: List[str]
@@ -25,12 +25,13 @@ class VareCreate(BaseModel):
     fail: FailData
 
 
-# 출력용 스키마
+# 출력용 스키마 (수정됨)
 class TodoResponse(BaseModel):
     id: int
     todo_text: str
     todo_category: str
     order_seq: int
+    is_completed: bool  # 새로 추가된 필드
 
     class Config:
         from_attributes = True
@@ -70,3 +71,8 @@ class VareResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+# TODO 업데이트용 스키마 (새로 추가)
+class TodoUpdate(BaseModel):
+    is_completed: bool
