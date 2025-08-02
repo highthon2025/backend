@@ -196,3 +196,7 @@ async def get_vare_by_id(vare_id: int, db: Session = Depends(database.get_db)):
         raise HTTPException(status_code=404, detail="해당 ID의 데이터가 없습니다")
 
     return vare
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
