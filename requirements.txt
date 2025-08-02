@@ -1,0 +1,63 @@
+annotated-types @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_1fa2djihwb/croot/annotated-types_1709542925772/work
+anyio==4.9.0
+appnope==0.1.4
+asttokens==3.0.0
+cachetools==5.5.2
+certifi==2025.7.14
+charset-normalizer==3.4.2
+click @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_d2rtg2ejqc/croot/click_1744271604580/work
+comm==0.2.2
+debugpy==1.8.13
+decorator==5.2.1
+executing==2.2.0
+fastapi @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_89gzc8olly/croot/fastapi_1724789159605/work
+google-auth==2.40.3
+google-genai==1.28.0
+h11 @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_557zp2ij9k/croot/h11_1748442489221/work
+httpcore==1.0.9
+httpx==0.28.1
+idna @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_a12xpo84t2/croot/idna_1714398852854/work
+ipykernel==6.29.5
+ipython==9.0.2
+ipython_pygments_lexers==1.1.1
+jedi==0.19.2
+jupyter_client==8.6.3
+jupyter_core==5.7.2
+matplotlib-inline==0.1.7
+nest-asyncio==1.6.0
+packaging==24.2
+parso==0.8.4
+pexpect==4.9.0
+platformdirs==4.3.7
+prompt_toolkit==3.0.50
+psutil==7.0.0
+ptyprocess==0.7.0
+pure_eval==0.2.3
+pyasn1==0.6.1
+pyasn1_modules==0.4.2
+pydantic @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_ac_4dmd4j4/croot/pydantic_1750769074322/work
+pydantic_core @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_9d3ads2bae/croot/pydantic-core_1750754745671/work
+Pygments==2.19.1
+PyMySQL==1.1.1
+python-dateutil==2.9.0.post0
+python-dotenv==1.1.1
+python-multipart==0.0.20
+pyzmq==26.3.0
+requests==2.32.4
+rsa==4.9.1
+setuptools==78.1.1
+six==1.17.0
+sniffio @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_1573pknjrg/croot/sniffio_1705431298885/work
+SQLAlchemy==2.0.42
+stack-data==0.6.3
+starlette @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_21zxgkzlvl/croot/starlette-recipe_1724683207405/work
+tenacity==8.5.0
+tornado==6.4.2
+traitlets==5.14.3
+typing-inspection @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_cdhsd2fkb6/croot/typing-inspection_1746023485130/work
+typing_extensions @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_0b3jpv_f79/croot/typing_extensions_1734714864260/work
+urllib3==2.5.0
+uvicorn @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_0dm6hdefmx/croot/uvicorn-split_1751615743028/work
+wcwidth==0.2.13
+websockets==15.0.1
+wheel==0.45.1
