@@ -59,13 +59,14 @@ prompt = """
 너는 아래 다섯 가지 항목을 출력해야 합니다:
 - "category": 이 두려움이 어떤 종류인지 분류합니다.
 - "title": 이 두려움에 대한 간단한 제목을 작성합니다.
-- "succ": 두려움을 극복하고 미래를 성취한 모습의 시뮬레이션. 
+- "succ": 두려움을 극복하고 미래를 성취한 모습의 시뮬레이션. 시뮬레이션은 100자 이내로 작성해주세요.
         -   그 미래를 위한 매일 단위의 TO DO 루틴도 포함되어야 합니다. 
             주나 월, 년도 단위의 계획을 세우지 마세요. 
             앞에 시간에 대한 어구를 붙이지 마세요. 
             해야 할 작업만 작성해주세요. 
             TODO 리스트의 카테고리도 달아주세요. 카테고리는 최대한 크게 잡아주세요 (ex: 진로), 카테고리가 겹쳐도 상관없습니다.
             TODO는 6개 작성해주세요. 카테고리 또한 6개로 동일해야 합니다.
+- "fail": 두려움을 극복하지 못했을 때의 상황을 설명합니다. 시뮬레이션은 100자 이내로 작성해주세요.
 - "reason": 두려움의 원인을 분석하고 논리적으로 설명한 부분.
             두려움의 원인을 짧게 적어주세요.
             두려움은 4개 작성해주세요. 백분위 또한 4개로 동일해야 합니다.
@@ -168,9 +169,9 @@ async def create_vare(vare_data: schemas.VareCreate, db: Session = Depends(datab
 
 @app.get("/db/latest", response_model=List[schemas.VareResponse])
 async def get_latest_vare(db: Session = Depends(database.get_db)):
-    """최근 3개의 vare 데이터 조회 (3개 이하면 이하인 대로 출력)"""
+    """최근 5개의 vare 데이터 조회 (5개 이하면 이하인 대로 출력)"""
 
-    latest_vares = db.query(Vare).order_by(Vare.created_at.desc()).limit(3).all()
+    latest_vares = db.query(Vare).order_by(Vare.created_at.desc()).limit(5).all()
 
     if not latest_vares:
         raise HTTPException(status_code=404, detail="데이터가 없습니다")
